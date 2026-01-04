@@ -1,0 +1,50 @@
+from enum import Enum
+
+
+class SpecializationEnum(str, Enum):
+    """Enumeration of possible user specializations."""
+    MICROBIOLOGY = "Microbiology"
+    HISTOLOGY = "Histology"
+    HAEMATOLOGY = "Haematology"
+    IMMUNOLOGY = "Immunology"
+    VIROLOGY = "Virology"
+    PARASITOLOGY = "Parasitology"
+    BLOOD_BANK = "Blood Bank"
+    CYTOLOGY = "Cytology"
+    MOLECULAR_DIAGNOSTICS = "Molecular Diagnostics"
+    CLINICAL_BIOCHEMISTRY = "Clinical Biochemistry"
+    PHARMACOLOGY = "Pharmacology"
+    TOXICOLOGY = "Toxicology"
+    FORENSIC_PATHOLOGY = "Forensic Pathology"
+    GENERAL_LABORATORY = "General Laboratory"
+
+
+class DepartmentEnum(str, Enum):
+    """Enumeration of possible user departments."""
+    MICROBIOLOGY = "Microbiology"
+    CHEMICAL_PATHOLOGY = "Chemical Pathology"
+    HISTOLOGY = "Histology"
+    HAEMATOLOGY = "Haematology"
+    IMMUNOLOGY = "Immunology"
+    VIROLOGY = "Virology"
+    PARASITOLOGY = "Parasitology"
+    BLOOD_BANK = "Blood Bank"
+    CYTOLOGY = "Cytology"
+    MOLECULAR_DIAGNOSTICS = "Molecular Diagnostics"
+    CLINICAL_BIOCHEMISTRY = "Clinical Biochemistry"
+    TOXICOLOGY = "Toxicology"
+    FORENSIC_PATHOLOGY = "Forensic Pathology"
+    ADMINISTRATION = "Administration"
+    QUALITY_ASSURANCE = "Quality Assurance"
+    RESEARCH_AND_DEVELOPMENT = "Research and Development"
+    GENERAL_LABORATORY = "General Laboratory"
+
+    class UserTypeEnum(str, Enum):
+        """Enumeration of possible user types."""
+        ADMIN = "Admin"
+        LAB_TECHNICIAN = "Lab Technician"
+        LAB_SCIENTIST = "Lab Scientist"
+        LAB_MANAGER = "Lab Manager"
+        QUALITY_OFFICER = "Quality Officer"
+        IT_SUPPORT = "IT Support"
+        HR_MANAGER = "HR Manager"
