@@ -7,6 +7,7 @@ from sqlalchemy.sql import func
 from app.db.base import Base
 
 if TYPE_CHECKING:
+    from app.models.laboratory.test_availability_model import BranchTestAvailability
     from app.models.laboratory.department_model import Department
     from app.models.staff.user_model import User
     from app.models.laboratory.laboratory_model import Laboratory
@@ -106,6 +107,20 @@ class Branch(Base):
         "User",
         back_populates="branch_rel",
         lazy="selectin"
+    )
+
+    test_availability: Mapped[List["BranchTestAvailability"]] = relationship(
+    "BranchTestAvailability",
+    foreign_keys="BranchTestAvailability.branch_id",
+    back_populates="branch_rel",
+    lazy="selectin"
+)
+
+    # Tests referred TO this branch from other branches
+    referred_tests: Mapped[List["BranchTestAvailability"]] = relationship(
+    "BranchTestAvailability",
+    foreign_keys="BranchTestAvailability.refer_to_branch_id",
+    lazy="selectin"
     )
 
     # Unique constraints
