@@ -18,7 +18,6 @@ class Laboratory(Base):
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
     name: Mapped[str] = mapped_column(String(150), unique=True, index=True, nullable=False)
-    slug: Mapped[str] = mapped_column(String(100), unique=True, index=True, nullable=False)  # URL-friendly identifier
 
     # Lab type
     lab_type: Mapped[str] = mapped_column(String(50),

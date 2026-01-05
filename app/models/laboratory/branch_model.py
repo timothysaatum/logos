@@ -1,7 +1,9 @@
+from typing import Optional, List, TYPE_CHECKING
+
 from sqlalchemy import String, Boolean, Integer, DateTime, Text, ForeignKey, Index, Float
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy.sql import func
-from typing import Optional, List, TYPE_CHECKING
+
 from app.db.base import Base
 
 if TYPE_CHECKING:
@@ -11,7 +13,6 @@ if TYPE_CHECKING:
 
 
 class Branch(Base):
-
     """
     Branch/Location model - represents a physical lab location.
     For single-location labs, there's just one branch.
@@ -47,6 +48,7 @@ class Branch(Base):
     postal_code: Mapped[Optional[str]] = mapped_column(String(20), nullable=True)
 
     # GPS coordinates
+    digital_address: Mapped[Optional[str]] = mapped_column(String(255), nullable=True)
     latitude: Mapped[Optional[Float]] = mapped_column(Float, nullable=True)
     longitude: Mapped[Optional[Float]] = mapped_column(Float, nullable=True)
 
