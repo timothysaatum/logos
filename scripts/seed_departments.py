@@ -1,12 +1,12 @@
 import asyncio
-import sys
 import os
+import sys
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from sqlalchemy import select
 from app.db.session import AsyncSessionLocal
-from app.models.laboratory.department_model import Department, Specialization
+from app.models.core.department_model import Department, Specialization
 
 
 async def seed_departments_and_specializations():
@@ -17,13 +17,13 @@ async def seed_departments_and_specializations():
         if result.first():
             print("Data already seeded")
             return
-        
+
         # Create departments
         departments = [
             Department(
                 name="General Laboratory",
                 code="GENLAB",
-                description="General laboratory services"
+                description="General core services"
             ),
             Department(
                 name="Microbiology",
@@ -46,7 +46,7 @@ async def seed_departments_and_specializations():
                 description="Administrative department"
             ),
         ]
-        
+
         # Create specializations
         specializations = [
             Specialization(
@@ -75,11 +75,11 @@ async def seed_departments_and_specializations():
                 description="Medical admin"
             ),
         ]
-        
+
         db.add_all(departments)
         db.add_all(specializations)
         await db.commit()
-        
+
         print(f"Seeded {len(departments)} departments")
         print(f"Seeded {len(specializations)} specializations")
 
