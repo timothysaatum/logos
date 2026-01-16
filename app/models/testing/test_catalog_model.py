@@ -159,8 +159,7 @@ class TestPanel(Base):
 
     # Audit
     created_at: Mapped[DateTime] = mapped_column(DateTime(timezone=True), server_default=func.now(), nullable=False)
-    updated_at: Mapped[DateTime] = mapped_column(DateTime(timezone=True), server_default=func.now(),
-                                                 onupdate=func.now(), nullable=False)
+    updated_at: Mapped[DateTime] = mapped_column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now(), nullable=False)
 
     # Relationships
     category_rel: Mapped["TestCategory"] = relationship("TestCategory", lazy="joined")
